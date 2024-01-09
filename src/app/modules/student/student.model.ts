@@ -46,10 +46,6 @@ const studentSchema = new Schema<TStudent>({
     type: Boolean,
     default: false,
   },
-  admissionYear: {
-    type: Date,
-    required: [true, 'Admission year is required'],
-  },
   contactNumber: {
     type: String,
     required: [true, 'Contact number is required'],
@@ -63,4 +59,4 @@ const studentSchema = new Schema<TStudent>({
     required: [true, 'Gender is required'],
   },
 });
-export const studentModel = model('user', studentSchema);
+export const studentModel = model('student', studentSchema);

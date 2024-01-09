@@ -6,14 +6,13 @@ export type TName = {
   lastName: string;
 };
 export type TStudent = {
-  id: string;
-  user: Types.ObjectId;
+  id?: string;
+  user?: Types.ObjectId;
   name: TName;
-  email: string;
+  email?: string;
   gender: 'Male' | 'Female';
   dateOfBirth: Date;
   contactNumber: string;
-  admissionYear: Date;
   department: Types.ObjectId;
   isDeleted: boolean;
 };
