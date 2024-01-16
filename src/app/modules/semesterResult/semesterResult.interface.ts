@@ -7,24 +7,27 @@ export type TAssignment = {
   assignmentName: string;
   assignmentNumber: number;
 };
-export type TExamResult={
-  firstExaminerResult:number;
-  secondExaminerResult:number;
-}
+export type TExamResult = {
+  firstExaminerResult: number;
+  secondExaminerResult: number;
+};
 export type TResult = {
   attendance: number;
   ct: TCt[];
   assignment: TAssignment[];
-  examResult:TExamResult
+  examResult: TExamResult;
   gpa?: number;
 };
 export type TSubResult = {
   title: string;
   courseCode: string;
+  credit: number;
   result: TResult;
 };
 export type TSemesterResult = {
   user: Types.ObjectId;
   semesterId: string;
   course: TSubResult[];
+  totalCredit?: number;
+  semesterGpa?: number;
 };

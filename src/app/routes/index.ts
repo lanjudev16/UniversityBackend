@@ -5,6 +5,7 @@ import academicDepartmentRoute from '../modules/academicDepartment/academicDepar
 import academicFacultyRouter from '../modules/academicFaculty/academicFaculty.route';
 import semesterRegistrationRouter from '../modules/semesterRegistration/semesterRegistration.route';
 import semesterResultRouter from '../modules/semesterResult/semesterResult.route';
+import yearGpaCalcRouter from '../modules/finalGpaCalculation/finalGpaCalculation.route';
 const router = Router();
 const modules = [
   {
@@ -30,6 +31,10 @@ const modules = [
   {
     path: '/semesterResult',
     route: semesterResultRouter,
+  },
+  {
+    path: '/yearGpa',
+    route: yearGpaCalcRouter,
   },
 ];
 modules.forEach((singleRoute) => {

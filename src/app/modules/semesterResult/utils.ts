@@ -4,6 +4,7 @@ import {
   TExamResult,
   TSemesterResult,
 } from './semesterResult.interface';
+import { semesterResultModel } from './semesterResult.model';
 
 export const totalMark = (subs: TSemesterResult) => {
   const ctCalculation = (cts: TCt[]) => {
@@ -85,4 +86,22 @@ export const checkGrade = (Subs: TSemesterResult) => {
     }
   });
   return Subs;
+};
+export const semesterGpaCalculation = (payLoad: TSemesterResult) => {
+  let semesterGpa: number = 0;
+  let totalCredit: number = 0;
+  payLoad.course.forEach((singleCourse) => {
+    semesterGpa =
+      semesterGpa + (singleCourse.result.gpa as number) * singleCourse.credit;
+    totalCredit = totalCredit + singleCourse.credit;
+  });
+  payLoad.semesterGpa = semesterGpa / totalCredit;
+  payLoad.totalCredit = totalCredit;
+  return payLoad;
+};
+export const isExitsSemester = async (payLoad: TSemesterResult) => {
+  const isExits = await semesterResultModel
+    .findOne({ user: payLoad.user })
+    .findOne({ semesterId: payLoad.semesterId });
+  return isExits ? true : false;
 };

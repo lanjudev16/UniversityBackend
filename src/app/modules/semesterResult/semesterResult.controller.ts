@@ -8,7 +8,7 @@ const semesterResultCreate = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: 200,
     success: true,
-    message: 'semester registration successfully created',
+    message: 'semester Result successfully created',
     data: result,
   });
 });

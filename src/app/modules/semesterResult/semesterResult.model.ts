@@ -69,16 +69,19 @@ const courseSchema = new Schema<TSubResult>({
     required: [true, 'Couresecode is required'],
     unique: true,
   },
+  credit: {
+    type: Number,
+    required: [true, 'Credit of the each subject is required'],
+  },
   result: {
     type: resultSchema,
     required: [true, 'Result is required'],
   },
 });
-const semesterResultSchema = new Schema<TSemesterResult>({
+export const semesterResultSchema = new Schema<TSemesterResult>({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'user',
-    required: true,
   },
   course: {
     type: [courseSchema],
@@ -87,6 +90,12 @@ const semesterResultSchema = new Schema<TSemesterResult>({
   semesterId: {
     type: String,
     required: [true, 'Semester id is required'],
+  },
+  totalCredit: {
+    type: Number,
+  },
+  semesterGpa: {
+    type: Number,
   },
 });
 export const semesterResultModel = model(
