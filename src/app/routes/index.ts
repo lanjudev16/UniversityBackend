@@ -6,6 +6,7 @@ import academicFacultyRouter from '../modules/academicFaculty/academicFaculty.ro
 import semesterRegistrationRouter from '../modules/semesterRegistration/semesterRegistration.route';
 import semesterResultRouter from '../modules/semesterResult/semesterResult.route';
 import yearGpaCalcRouter from '../modules/finalGpaCalculation/finalGpaCalculation.route';
+import productRouter from '../modules/product/product.route';
 const router = Router();
 const modules = [
   {
@@ -35,6 +36,10 @@ const modules = [
   {
     path: '/yearGpa',
     route: yearGpaCalcRouter,
+  },
+  {
+    path: '/product',
+    route: productRouter,
   },
 ];
 modules.forEach((singleRoute) => {

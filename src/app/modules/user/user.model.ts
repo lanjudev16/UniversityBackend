@@ -23,7 +23,7 @@ const userSchema = new Schema<TUser>(
     role: {
       type: String,
       enum: {
-        values: ['admin', 'student', 'faculty'],
+        values: ['admin', 'faculty', 'administrator', 'staff'],
         message: `{VALUE} is not recognized`,
       },
       required: [true, 'Role is required'],
