@@ -12,6 +12,16 @@ const desktopCreate = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const desktopUpdate = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await productService.desktopUpdate(req.body, id);
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: 'Desktop successfully update',
+    data: result,
+  });
+});
 const deskBoxCreate = catchAsync(async (req: Request, res: Response) => {
   const result = await productService.deskBoxCreate(req.body);
   sendResponse(res, {
@@ -21,12 +31,32 @@ const deskBoxCreate = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const deskBoxUpdate = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await productService.deskBoxUpdate(req.body, id);
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: 'DeskBox successfully update',
+    data: result,
+  });
+});
 const whiteboardCreate = catchAsync(async (req: Request, res: Response) => {
   const result = await productService.whiteboardCreate(req.body);
   sendResponse(res, {
     statusCode: 200,
     success: true,
     message: 'whiteboard successfully create',
+    data: result,
+  });
+});
+const whiteboardUpdate = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await productService.whiteboardUpdate(req.body, id);
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: 'Whiteboard successfully update',
     data: result,
   });
 });
@@ -48,6 +78,7 @@ const chairCreate = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+
 const markerCreate = catchAsync(async (req: Request, res: Response) => {
   const result = await productService.markerCreate(req.body);
   sendResponse(res, {
@@ -57,6 +88,39 @@ const markerCreate = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+
+const markerUpdate = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await productService.markerUpdate(req.body, id);
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: 'Marker successfully update',
+    data: result,
+  });
+});
+
+const tableUpdate = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await productService.tableUpdate(req.body, id);
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: 'table successfully update',
+    data: result,
+  });
+});
+const chairUpdate = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await productService.chairUpdate(req.body, id);
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: 'chair successfully update',
+    data: result,
+  });
+});
+
 const getAllProduct = async (req: Request, res: Response) => {
   const result = await productService.getAllProduct();
   sendResponse(res, {
@@ -68,10 +132,16 @@ const getAllProduct = async (req: Request, res: Response) => {
 };
 export const productController = {
   desktopCreate,
+  desktopUpdate,
+  deskBoxUpdate,
+  markerUpdate,
   deskBoxCreate,
   whiteboardCreate,
   tableCreate,
   chairCreate,
+  tableUpdate,
   markerCreate,
+  chairUpdate,
   getAllProduct,
+  whiteboardUpdate,
 };
